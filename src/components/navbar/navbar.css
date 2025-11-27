@@ -1,0 +1,323 @@
+.portfolio-navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
+}
+
+.portfolio-navbar-links{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.portfolio-navbar-links-logo{
+    margin-right: 2rem;
+}
+
+.portfolio-navbar-links-logo img{
+    width: 62px;
+    height: 16px;
+}
+
+.portfolio-navbar-links-container{
+    display: flex;
+}
+
+.portfolio-navbar-ctabtn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.portfolio-navbar-links-container p,
+.portfolio-navbar-ctabtn p,
+.portfolio-navbar-menu-container p{
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.portfolio-navbar-ctabtn a,
+.portfolio-navbar-menu-ctabtn {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #FF4820;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.portfolio-navbar-menu{
+    display: none;
+    margin-left: 1rem;
+    position: relative;
+}
+
+.portfolio-navbar-menu svg{
+    cursor: pointer;
+}
+
+.portfolio-navbar-menu-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: end;
+    background: var(--color-footer);
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    margin-top: 1rem;
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-navbar-menu-container p{
+    margin: 1rem 0;
+}
+
+.portfolio-navbar-menu-container-links-ctabtn{
+    display: none;
+}
+
+@media screen and (max-width: 1050px) {
+    .portfolio-navbar-links-container{
+        display: none;
+    }
+    .portfolio-navbar-menu{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .portfolio-navbar{
+        padding: 2rem 4rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .portfolio-navbar{
+        padding: 2rem;
+    }
+    .portfolio-navbar-ctabtn{
+        display: none;
+    }
+    .portfolio-navbar-menu-container{
+        top: 20px;
+    }
+    .portfolio-navbar-menu-container-links-ctabtn{
+        display: block;
+    }
+}
+/*
+=================================================
+1. MAIN NAVBAR LAYOUT AND BASE STYLES
+=================================================
+*/
+
+.portfolio-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 6rem; /* Standard padding for desktop */
+    
+    /* Aesthetic Update: Make it semi-transparent (glass effect) */
+    background: rgba(25, 25, 40, 0.5); /* Semi-transparent dark background */
+    backdrop-filter: blur(8px); /* Subtle blur effect (modern "glassmorphism") */
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    
+    /* Ensure the navbar sits above all other content */
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for "pop-out" look */
+}
+
+.portfolio-navbar-links {
+    flex: 1; /* Allows links section to take up available space */
+    display: flex;
+    justify-content: flex-end; /* Push content to the right side */
+    align-items: center;
+}
+
+/*
+.portfolio-navbar-links-logo { ... } 
+(Add styles for your logo here if you decide to uncomment it in Navbar.jsx)
+*/
+
+/*
+=================================================
+2. NAVIGATION LINKS (MENU) STYLES
+=================================================
+*/
+
+.portfolio-navbar-links-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.portfolio-navbar-links-container p,
+.portfolio-navbar-menu-container-links p {
+    margin: 0 1rem;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+    
+    /* Contrast Color: Bright, clean color against the dark background */
+    color: #f0f0f0; 
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.portfolio-navbar-links-container p a,
+.portfolio-navbar-menu-container-links p a {
+    color: inherit; /* Inherit the text color */
+    text-decoration: none;
+    padding-bottom: 3px; /* Space for the hover effect */
+}
+
+.portfolio-navbar-links-container p a:hover {
+    color: #4D00FF; /* Hover color (Electric Violet/Blue) */
+    /* Dynamic Hover Effect: Subtle underline that appears */
+    border-bottom: 2px solid #FF69B4; /* Hot Pink line for energy */
+}
+
+/*
+=================================================
+3. CALL TO ACTION (CTA) BUTTON STYLES
+=================================================
+*/
+
+.portfolio-navbar-ctabtn {
+    margin-left: 2rem;
+}
+
+.portfolio-navbar-ctabtn a,
+.portfolio-navbar-menu-ctabtn {
+    /* Define a vibrant, contrasting button look */
+    padding: 0.5rem 1rem;
+    color: #FFF;
+    background: linear-gradient(90deg, #4D00FF 0%, #FF00A2 100%); /* Vibrant gradient */
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Subtle Pop-Out/Glow Effect */
+    box-shadow: 0 0 15px rgba(255, 0, 162, 0.4); 
+    transition: all 0.3s ease-in-out;
+}
+
+.portfolio-navbar-ctabtn a:hover,
+.portfolio-navbar-menu-ctabtn:hover {
+    transform: scale(1.05); /* Slight grow on hover */
+    box-shadow: 0 0 25px rgba(255, 0, 162, 0.7); /* Brighter glow */
+}
+
+
+/*
+=================================================
+4. MOBILE MENU (ICONS AND CONTAINER) STYLES
+=================================================
+*/
+
+.portfolio-navbar-menu {
+    margin-left: 1rem;
+    display: none; /* Hidden by default on desktop */
+    position: relative;
+}
+
+.portfolio-navbar-menu svg {
+    cursor: pointer;
+}
+
+.portfolio-navbar-menu-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    
+    /* Position the mobile menu dropdown */
+    text-align: end;
+    padding: 2rem;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    margin-top: 1rem;
+    min-width: 210px;
+    border-radius: 5px;
+    
+    /* Match the aesthetic of the main navbar (translucent and blurred) */
+    background: rgba(25, 25, 40, 0.8); 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio-navbar-menu-container-links-ctabtn {
+    display: none; /* Hide the mobile CTA initially */
+}
+
+/*
+=================================================
+5. MEDIA QUERIES (RESPONSIVENESS)
+=================================================
+*/
+
+/* Medium Devices (e.g., Tablets, Small Laptops) */
+@media screen and (max-width: 1050px) {
+    .portfolio-navbar-links-container {
+        display: none; /* Hide the full menu */
+    }
+
+    .portfolio-navbar-ctabtn {
+        display: none; /* Hide the desktop CTA button */
+    }
+
+    .portfolio-navbar-menu {
+        display: flex; /* Show the mobile menu icon */
+    }
+}
+
+/* Small Devices (e.g., Phones) */
+@media screen and (max-width: 700px) {
+    .portfolio-navbar {
+        padding: 1rem 4rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .portfolio-navbar {
+        padding: 1rem 2rem;
+    }
+
+    .portfolio-navbar-menu-container {
+        top: 20px;
+    }
+    
+    .portfolio-navbar-menu-container-links p {
+        margin: 1rem 0; /* Add vertical space to mobile links */
+    }
+    
+    .portfolio-navbar-menu-container-links-ctabtn {
+        display: block; /* Show the CTA button inside the mobile menu */
+    }
+}

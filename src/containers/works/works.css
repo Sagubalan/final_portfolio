@@ -1,0 +1,22 @@
+.works h1{
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.works h3{
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.works-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+    .works-container{
+        padding: 0;
+    }
+}

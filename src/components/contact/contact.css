@@ -1,0 +1,29 @@
+.contact-wrapper h1{
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.contact{
+    background: var(--gradient-bar);
+    padding: 2rem;
+    margin: 2.5rem 5rem;
+    border-radius: 1rem;
+    min-height: 584px;
+}
+
+@media screen and (max-width:768px) {
+    .contact{
+        margin: 1rem 0;
+    }
+}
+
+.contact-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-heading h2{
+    font-size: 30px;
+    font-weight: 800;
+}

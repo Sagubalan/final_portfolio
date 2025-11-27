@@ -1,0 +1,45 @@
+.service-grid{
+    background-color: #fff;
+
+    width: 250px;
+    height: 300px;
+    padding: 1.5rem;
+    color: rgb(36, 36, 36);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+@media screen and (max-width: 790px) {
+    .service-grid{
+        margin: 1rem;
+    }
+}
+
+.service-grid h2{
+    line-height: 29px;
+    margin: 0.4rem 0;
+    color: #623197;
+    text-align: center;
+    
+}
+
+.service-grid p{
+}
+
+.service-grid-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(226, 234, 241);
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+
+.service-grid-icon img{
+    width: 50%;
+    height: 50%;
+}

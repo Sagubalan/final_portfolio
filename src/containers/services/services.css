@@ -1,0 +1,68 @@
+/* Existing CSS */
+.services h1{
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.services-container{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* --- ADD NEW ANIMATION CODE BELOW --- */
+
+/* 1. Main Container Setup */
+.services {
+    /* Ensure the pseudo-element is contained within the section */
+    position: relative; 
+    overflow: hidden; /* Important to hide lines outside the bounds */
+    z-index: 1; /* Ensures content (h1, Service cards) stays on top of the background lines */
+}
+
+/* 2. Pseudo-element (The Lines) */
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Creates repeating vertical lines (1px white line, 29px transparent space) */
+    background: repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 30px
+    );
+    /* Sets the repeating pattern size to 100px wide, which is the distance we scroll */
+    background-size: 100px 100%; 
+    z-index: -1; /* Pushes the lines behind the main content */
+    animation: lineScroll 30s linear infinite; /* Applies the scrolling animation */
+}
+
+/* 3. Keyframe Animation */
+@keyframes lineScroll {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        /* Moves the background image 100px horizontally, the exact size of the repeating pattern, 
+           creating a seamless, infinite loop. */
+        background-position-x: 100px; 
+    }
+}
+.services h1{
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.services-container{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}

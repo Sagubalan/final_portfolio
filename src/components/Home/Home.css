@@ -1,0 +1,219 @@
+/*
+=================================================
+1. MAIN HOME SECTION LAYOUT
+=================================================
+*/
+.portfolio-home {
+    display: flex;
+    flex-direction: row; /* Default: content and image side-by-side */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 8rem 6rem; /* Top/bottom padding for breathing room */
+    height: calc(100vh - 80px); /* Adjust height to fill screen minus navbar height (approx) */
+    position: relative; /* For z-indexing if needed for overlays */
+    color: #f0f0f0; /* Default text color for the section */
+    overflow: hidden; /* Hide any content that goes beyond bounds, especially for animations */
+}
+
+.portfolio-home-content {
+    flex: 1; /* Takes available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align text to the left */
+    text-align: left;
+    max-width: 700px; /* Limit content width for readability */
+    
+    /* Ensure content is above the bubbles */
+    z-index: 2; 
+}
+
+.portfolio-home-image {
+    flex: 1; /* Takes remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.portfolio-home-image img {
+    width: 80%; /* Adjust size as needed */
+    max-width: 400px; /* Max size for image */
+    height: auto;
+    border-radius: 50%; /* If it's a profile picture */
+    object-fit: cover;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4); /* Glowing effect for image */
+}
+
+
+/*
+=================================================
+2. TEXT STYLES & ENTRANCE ANIMATIONS
+=================================================
+*/
+
+/* Define the fade-in animation */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-home-intro {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: #ADD8E6; /* Light Blue for a welcoming feel */
+    opacity: 0; /* Hidden initially */
+    animation: fadeInSlideUp 0.8s ease-out forwards; /* Apply animation */
+    animation-delay: 0.2s; /* Staggered delay */
+}
+
+.portfolio-home-title {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #FF69B4, #4D00FF, #00FFFF); /* Vibrant gradient for name */
+    -webkit-background-clip: text; /* Apply gradient to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.portfolio-home-subtitle {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #98FB98; /* Pale Green for a fresh look */
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.portfolio-home-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #D3D3D3; /* Light gray for readability */
+    max-width: 500px;
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+
+/*
+=================================================
+3. CALL TO ACTION BUTTONS
+=================================================
+*/
+.portfolio-home-buttons {
+    display: flex;
+    gap: 1.5rem; /* Space between buttons */
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 1s; /* Last element to animate */
+}
+
+.portfolio-home-buttons a {
+    padding: 1rem 2.5rem;
+    border-radius: 30px; /* Rounded pill shape */
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap; /* Prevent buttons from wrapping text */
+}
+
+.portfolio-home-cta-primary {
+    background: linear-gradient(45deg, #4D00FF, #FF00A2); /* Same vibrant gradient as Navbar CTA */
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 0, 162, 0.5); /* Glowing effect */
+}
+
+.portfolio-home-cta-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 30px rgba(255, 0, 162, 0.8);
+}
+
+.portfolio-home-cta-secondary {
+    background: transparent; /* Transparent background */
+    border: 2px solid #00FFFF; /* Electric Cyan border */
+    color: #00FFFF;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.portfolio-home-cta-secondary:hover {
+    background: rgba(0, 255, 255, 0.1); /* Slight fill on hover */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+/*
+=================================================
+4. MEDIA QUERIES (RESPONSIVENESS)
+=================================================
+*/
+
+@media screen and (max-width: 1050px) {
+    .portfolio-home {
+        flex-direction: column-reverse; /* Image on top, content below */
+        padding: 6rem 4rem;
+        text-align: center;
+        height: auto; /* Allow content to dictate height */
+    }
+
+    .portfolio-home-content {
+        align-items: center; /* Center content for smaller screens */
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .portfolio-home-title {
+        font-size: 50px;
+    }
+
+    .portfolio-home-subtitle {
+        font-size: 30px;
+    }
+
+    .portfolio-home-image {
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .portfolio-home {
+        padding: 4rem 2rem;
+    }
+
+    .portfolio-home-title {
+        font-size: 40px;
+    }
+
+    .portfolio-home-subtitle {
+        font-size: 24px;
+    }
+
+    .portfolio-home-intro {
+        font-size: 20px;
+    }
+
+    .portfolio-home-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 1rem;
+        width: 100%; /* Make buttons full width */
+        max-width: 300px; /* Limit button width for aesthetics */
+    }
+
+    .portfolio-home-buttons a {
+        width: 100%;
+    }
+}
