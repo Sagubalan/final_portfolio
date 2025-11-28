@@ -1,6 +1,32 @@
+/* ============================================ */
+/* FADE-IN ANIMATIONS FROM BOTTOM */
+/* ============================================ */
+@keyframes fadeInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .hero{
     display: flex;
     padding-top: 1rem !important;
+    overflow: hidden; /* Prevent animation overflow */
 }
 
 @media screen and (min-width: 1050px) {
@@ -22,7 +48,10 @@
     font-family: var(--font-family);
     font-weight: 800;
     font-size: 62px;
-    line-height: 70px;   
+    line-height: 70px;
+    /* Fade-in animation */
+    animation: fadeInFromBottom 0.8s ease-out forwards;
+    animation-delay: 0.2s;
 }
 
 .hero-content h2{
@@ -32,14 +61,25 @@
     color: #fff;
     margin-top: -17px;
     letter-spacing: 3px;
+    /* Fade-in animation with delay */
+    animation: fadeInFromBottom 0.8s ease-out forwards;
+    animation-delay: 0.4s;
 }
 
 .hero-content p{
     font-size: 20px;
     line-height: 27px;
     color: var(--color-text);
-
     margin-top: 1.5rem;
+    /* Fade-in animation with delay */
+    animation: fadeInFromBottom 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* Light mode - pink color for paragraph */
+[data-theme="light"] .hero-content p {
+    color: #E91E63;
+    font-weight: 500;
 }
 
 .explore-btn{
@@ -58,6 +98,21 @@
     border: none;
     padding: 0 1rem;
     margin-top: 1.5rem;
+    /* Fade-in animation */
+    animation: fadeInFromBottom 0.8s ease-out forwards;
+    animation-delay: 0.8s;
+    /* Smooth hover transition */
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Button hover animation with scale and shadow */
+.explore-btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 72, 32, 0.4);
+}
+
+.explore-btn:active {
+    transform: scale(0.98);
 }
 
 .hero-image{
@@ -70,6 +125,16 @@
 .hero-image img{
     width: 100%;
     margin-right: 100px;
+    /* Zoom-in animation on page load */
+    animation: zoomIn 1s ease-out forwards;
+    animation-delay: 0.3s;
+    /* Smooth transition for hover effects */
+    transition: transform 0.3s ease-out;
+}
+
+/* Subtle hover effect for the image */
+.hero-image img:hover {
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 1050px) {
@@ -87,6 +152,9 @@
 
     .hero-image img{
         margin-right: auto;
+        /* Animations remain active on mobile */
+        animation: zoomIn 1s ease-out forwards;
+        animation-delay: 0.3s;
     }
 
     .hero-scroll-animation{
@@ -98,6 +166,8 @@
     .hero h1{
         font-size: 48px;
         line-height: 60px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.2s;
     }
 
     .hero h2{
@@ -105,11 +175,15 @@
         margin-top: -14px;
         font-weight: 400;
         letter-spacing: 3.3px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.4s;
     }
 
     .hero p{
         font-size: 16px;
         line-height: 24px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.6s;
     }
 
     .hero-image img{
@@ -119,6 +193,8 @@
     .explore-btn{
         font-size: 16px;
         line-height: 24px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.8s;
     }
 
     .hero-scroll-animation{
@@ -130,6 +206,8 @@
     .hero h1{
         font-size: 36px;
         line-height: 36px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.2s;
     }
 
     .hero h2{
@@ -138,12 +216,16 @@
         font-weight: 400;
         letter-spacing: 3.3px;
         line-height: 25px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.4s;
     }
 
     .hero p{
         font-size: 14px;
         line-height: 24px;
         margin-top: 1rem;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.6s;
     }
 
     .hero-image img{
@@ -153,6 +235,8 @@
     .explore-btn{
         font-size: 15px;
         line-height: 16px;
+        animation: fadeInFromBottom 0.8s ease-out forwards;
+        animation-delay: 0.8s;
     }
 
     .hero-scroll-animation{

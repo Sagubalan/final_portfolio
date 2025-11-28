@@ -1,19 +1,38 @@
 .contact-wrapper h1{
     font-size: 40px;
     font-weight: 800;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .contact{
-    background: var(--gradient-bar);
-    padding: 2rem;
-    margin: 2.5rem 5rem;
-    border-radius: 1rem;
-    min-height: 584px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(221, 160, 221, 0.15) 50%, rgba(173, 216, 230, 0.15) 100%);
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
 }
 
-@media screen and (max-width:768px) {
-    .contact{
-        margin: 1rem 0;
+[data-theme="light"] .contact {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.2) 0%, rgba(221, 160, 221, 0.2) 50%, rgba(173, 216, 230, 0.2) 100%);
+    border: 1px solid rgba(26, 58, 82, 0.1);
+    box-shadow: 0 4px 20px rgba(26, 58, 82, 0.08);
+}
+
+@media screen and (max-width: 768px) {
+    .contact {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact {
+        margin: 1rem 0.75rem;
+        padding: 1.25rem;
     }
 }
 
@@ -21,9 +40,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .contact-heading h2{
-    font-size: 30px;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FF6B35 0%, #E91E63 50%, #9C27B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    letter-spacing: 0.5px;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background: linear-gradient(135deg, #FF6B35 0%, #E91E63 50%, #9C27B0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    50% {
+        background: linear-gradient(135deg, #E91E63 0%, #9C27B0 50%, #FF6B35 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    100% {
+        background: linear-gradient(135deg, #FF6B35 0%, #E91E63 50%, #9C27B0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+[data-theme="light"] .contact-heading h2 {
+    background: linear-gradient(135deg, #FF6B35 0%, #E91E63 50%, #7B68EE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }

@@ -100,61 +100,18 @@ a{
         margin: 4rem 2rem;
     }
 }
-/* src/App.css or src/index.css */
 
 /*
-Define the animation keyframes. This tells the browser how
-the 'background-position' property should change over time.
-*/
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%; /* Start position: left side of the large background is visible */
-  }
-  50% {
-    background-position: 100% 50%; /* Middle position: right side of the large background is visible */
-  }
-  100% {
-    background-position: 0% 50%; /* Return to start, creating a loop */
-  }
-}
-
-/*
-Apply the animated background to the main wrapper of your application.
+Apply the static background to the main wrapper of your application.
 The .App class is often the default class in App.jsx.
-*/
-.App {
-  /* Define the large, colorful gradient */
-  background: linear-gradient(
-    45deg,
-    #450303db,   /* Bright Red */
-    #c4af9c,   /* Vibrant Orange */
-    #d9d9b4,   /* Pure Yellow */
-    #9dce9d,   /* Neon Green */
-    #113762,   /* Electric Blue */
-    #cecbd5    /* Deep Violet */
-  );
-
-  /* Crucial: Make the background larger than the viewport so it can move */
-  background-size: 400% 400%;
-
-  /* Apply the animation */
-  animation: gradientShift 20s ease infinite; /* 20 seconds, smooth speed, infinite loop */
-
-  /* Ensure the background covers the entire page */
-  min-height: 100vh;
-}
-/* src/App.css (Updated) */
-
-/* 1. Basic styling for the main App container (if you haven't already).
-      Ensure it takes full height and positions children correctly.
 */
 .App {
   min-height: 100vh;
   position: relative; /* Important for positioning the bubbles within it */
   overflow: hidden;   /* Hide bubbles that go outside the main container */
-  /* Remove any previous background gradient if you want the bubbles to be the main background */
-  background-color: #1a1a2e; /* A dark, subtle background to make bubbles pop */
-  color: #f0f0f0; /* Example text color for contrast */
+  background-color: var(--color-bg); /* Use CSS variable for theme support */
+  color: var(--color-text); /* Use CSS variable for text color */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 2. Container for the bubbles.
@@ -267,3 +224,267 @@ The .App class is often the default class in App.jsx.
 /* Add more for each bubble if you have more .bubble divs in App.jsx */
 /* .bubble:nth-child(6) { ... } */
 /* .bubble:nth-child(7) { ... } */
+
+/* ============================================ */
+/* SHOOTING STAR EFFECT */
+/* ============================================ */
+
+@keyframes shootingStar {
+  0% {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(100, 200, 255, 0.6);
+  }
+  100% {
+    top: 100%;
+    left: 100%;
+    opacity: 0;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(100, 200, 255, 0.1);
+  }
+}
+
+@keyframes shootingStarTrail {
+  0% {
+    box-shadow: 
+      0 0 15px rgba(255, 255, 255, 0.8),
+      -5px -5px 10px rgba(100, 200, 255, 0.6),
+      -10px -10px 5px rgba(100, 150, 255, 0.4);
+  }
+  100% {
+    box-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.2),
+      -5px -5px 2px rgba(100, 200, 255, 0.1),
+      -10px -10px 0px rgba(100, 150, 255, 0);
+  }
+}
+
+.shooting-star {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 3px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: shootingStar 2s ease-in forwards;
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(100, 200, 255, 0.6);
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 50%;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.5), transparent);
+  transform: rotate(-45deg);
+  transform-origin: center;
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+}
+
+/* Star 1 */
+.shooting-star:nth-child(1) {
+  animation-delay: 0s;
+  animation-duration: 1.5s;
+}
+
+/* Star 2 */
+.shooting-star:nth-child(2) {
+  animation-delay: 4s;
+  animation-duration: 1.8s;
+}
+
+/* Star 3 */
+.shooting-star:nth-child(3) {
+  animation-delay: 8s;
+  animation-duration: 1.6s;
+}
+
+/* Star 4 */
+.shooting-star:nth-child(4) {
+  animation-delay: 12s;
+  animation-duration: 1.7s;
+}
+
+/* Star 5 */
+.shooting-star:nth-child(5) {
+  animation-delay: 16s;
+  animation-duration: 1.5s;
+}
+
+/* ============================================ */
+/* FLOATING GLOWING DOTS ANIMATION */
+/* ============================================ */
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(100, 200, 255, 0.5), inset 0 0 10px rgba(100, 200, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(100, 200, 255, 0.8), inset 0 0 20px rgba(100, 200, 255, 0.6);
+  }
+}
+
+.floating-dots-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle at 30% 30%, rgba(100, 200, 255, 0.9), rgba(100, 200, 255, 0.3));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatGlow 6s ease-in-out infinite;
+}
+
+/* Dark mode glow effect */
+[data-theme="dark"] .floating-dot {
+  animation: floatGlow 6s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
+}
+
+/* Light mode - subtle glow */
+[data-theme="light"] .floating-dot {
+  background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.6), rgba(124, 58, 237, 0.2));
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+/* Position variations for different dots */
+.floating-dot:nth-child(1) {
+  top: 10%;
+  left: 5%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 0s;
+  animation-duration: 7s;
+}
+
+.floating-dot:nth-child(2) {
+  top: 20%;
+  left: 15%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+
+.floating-dot:nth-child(3) {
+  top: 30%;
+  left: 80%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 2s;
+  animation-duration: 9s;
+}
+
+.floating-dot:nth-child(4) {
+  top: 50%;
+  left: 10%;
+  width: 7px;
+  height: 7px;
+  animation-delay: 1.5s;
+  animation-duration: 7.5s;
+}
+
+.floating-dot:nth-child(5) {
+  top: 60%;
+  left: 85%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 2.5s;
+  animation-duration: 8.5s;
+}
+
+.floating-dot:nth-child(6) {
+  top: 70%;
+  left: 20%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 0.5s;
+  animation-duration: 7.8s;
+}
+
+.floating-dot:nth-child(7) {
+  top: 80%;
+  left: 75%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 3s;
+  animation-duration: 8.2s;
+}
+
+.floating-dot:nth-child(8) {
+  top: 40%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 1.2s;
+  animation-duration: 7.3s;
+}
+
+.floating-dot:nth-child(9) {
+  top: 15%;
+  left: 70%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 2.8s;
+  animation-duration: 8.8s;
+}
+
+.floating-dot:nth-child(10) {
+  top: 85%;
+  left: 40%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 0.8s;
+  animation-duration: 7.6s;
+}

@@ -1,25 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
-:root {
+/* ============================================ */
+/* DARK MODE (DEFAULT) */
+/* ============================================ */
+:root,
+[data-theme="dark"] {
   --font-family: 'Manrope', sans-serif;
 
   --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
   --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
   
   --color-bg: #040C18;
-  --color-footer : #05274b;
+  --color-footer: #15206e;
   --color-blog: #042c54;
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
 }
+
+/* ============================================ */
+/* LIGHT MODE */
+/* ============================================ */
+[data-theme="light"] {
+  --font-family: 'Manrope', sans-serif;
+
+  --gradient-text: linear-gradient(89.97deg, #7C3AED 1.84%, #FF6B35 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #7C3AED -13.86%, #FF6B35 99.55%);
+  
+  --color-bg: #ffffff;
+  --color-footer: #e8f4f8;
+  --color-blog: #f5f5f5;
+  --color-text: #1a3a52;
+  --color-subtext: #FF6B35;
+}
+
 /* src/index.css */
 body {
     margin: 0; /* Important to remove default body margin */
     padding: 0;
-    /* Apply the animation properties directly here */
-    background: linear-gradient(...);
-    background-size: 400% 400%;
-    animation: gradientShift 20s ease infinite;
-    min-height: 100vh;
+    background: var(--color-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* The @keyframes gradientShift definition still goes in this file. */

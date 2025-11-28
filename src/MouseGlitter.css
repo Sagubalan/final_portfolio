@@ -1,0 +1,71 @@
+/* ============================================ */
+/* MOUSE GLITTER STAR EFFECT */
+/* ============================================ */
+
+.glitter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.glitter-star {
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 1), rgba(100, 200, 255, 0.8));
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: glitterFadeOut 1s ease-out forwards;
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.8), inset 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Dark mode glitter - more vibrant */
+[data-theme="dark"] .glitter-star {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 1), rgba(100, 200, 255, 1));
+  box-shadow: 0 0 15px rgba(100, 200, 255, 1), inset 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Light mode glitter - softer */
+[data-theme="light"] .glitter-star {
+  background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.9), rgba(124, 58, 237, 0.6));
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.7), inset 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes glitterFadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -30px) scale(0) rotate(360deg);
+  }
+}
+
+/* Additional glow effect for dark mode */
+[data-theme="dark"] .glitter-star {
+  animation: glitterFadeOutDark 1s ease-out forwards;
+}
+
+@keyframes glitterFadeOutDark {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    filter: brightness(1.2);
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -40px) scale(0) rotate(360deg);
+    filter: brightness(0.8);
+  }
+}

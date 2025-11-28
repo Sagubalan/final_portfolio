@@ -15,7 +15,7 @@ function Education() {
                 <h2>Education</h2>
             </div>
             <div className='timeline-container'>
-                <TimelineBlock icon={<SchoolIcon fontSize='large' />} title='Bachelor Degree' duration='sep 2024 - Present' company='K.S.R COLLEGE OF ENGINEERING, Tiruchencode( Anna University of Chennai )' text="Currently pursuing Undergraduate degree in Computer science and Engineering." />
+                <TimelineBlock icon={<SchoolIcon fontSize='large' />} title='Bachelor Degree' duration='sep 2024 - Present' company='K.S.R COLLEGE OF ENGINEERING, Tiruchencode( Autonomus )' text="Currently pursuing Undergraduate degree in Computer science and Engineering." />
 
                 <TimelineBlock icon={<SchoolIcon fontSize='large' />} title='Higher Secondary' duration='June 2023 - March 2024' company='Raj Vidya Bhavan Matric H.R. Sec.School, Thuraiyur-Trichy 621010' text="Completed Higher Secondary education in Computer Science stream with an overall grade of 82%" />
 

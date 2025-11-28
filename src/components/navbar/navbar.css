@@ -27,6 +27,20 @@
     -webkit-backdrop-filter: blur(8px); /* For Safari support */
     
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for "pop-out" look */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode navbar styling */
+[data-theme="light"] .portfolio-navbar {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .portfolio-navbar-links-container p,
+[data-theme="light"] .portfolio-navbar-menu-container-links p,
+[data-theme="light"] .portfolio-navbar-ctabtn p,
+[data-theme="light"] .portfolio-navbar-menu-container p {
+    color: #1a3a52;
 }
 
 .portfolio-navbar-links {
@@ -68,6 +82,7 @@
     margin: 0 1rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
 .portfolio-navbar-links-container p a,
@@ -75,12 +90,54 @@
     color: inherit; /* Inherit the text color */
     text-decoration: none;
     padding-bottom: 3px; /* Space for the hover effect */
+    position: relative;
+    display: inline-block;
+}
+
+/* Highlight underline animation */
+.portfolio-navbar-links-container p a::after,
+.portfolio-navbar-menu-container-links p a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #13ec0c, #e60877); /* Green to Pink gradient */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.portfolio-navbar-links-container p a:hover::after,
+.portfolio-navbar-menu-container-links p a:hover::after {
+    width: 100%; /* Expand underline on hover */
 }
 
 .portfolio-navbar-links-container p a:hover {
-    color: #13ec0c; /* Hover color (Electric Violet/Blue) */
-    /* Dynamic Hover Effect: Subtle underline that appears */
-    border-bottom: 2px solid #e60877; /* Hot Pink line for energy */
+    color: #13ec0c; /* Hover color (Green) */
+    text-shadow: 0 0 10px rgba(19, 236, 12, 0.5); /* Glow effect */
+    transform: translateY(-2px); /* Lift on hover */
+}
+
+.portfolio-navbar-menu-container-links p a:hover {
+    color: #13ec0c;
+    text-shadow: 0 0 10px rgba(19, 236, 12, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ========== ACTIVE STATE STYLING ========== */
+/* Active link styling - stays highlighted when you're on that section */
+.portfolio-navbar-links-container p a.active,
+.portfolio-navbar-menu-container-links p a.active {
+    color: #13ec0c; /* Green - same as hover */
+    text-shadow: 0 0 15px rgba(19, 236, 12, 0.8); /* Stronger glow for active */
+    font-weight: 600; /* Make it bolder */
+}
+
+.portfolio-navbar-links-container p a.active::after,
+.portfolio-navbar-menu-container-links p a.active::after {
+    width: 100%; /* Keep underline expanded when active */
+    background: linear-gradient(90deg, #13ec0c, #e60877);
+    height: 3px; /* Thicker underline for active state */
 }
 
 /*
@@ -187,12 +244,108 @@
     .portfolio-navbar-menu {
         display: flex; /* Show the mobile menu icon */
     }
+
+    .theme-toggle-btn {
+        display: none; /* Hide theme toggle on mobile - show in menu instead */
+    }
+}
+
+/* ============================================ */
+/* THEME TOGGLE BUTTON */
+/* ============================================ */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5rem;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.theme-toggle-btn:hover {
+    color: #13ec0c;
+    text-shadow: 0 0 10px rgba(19, 236, 12, 0.5);
+    transform: rotate(20deg) scale(1.1);
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    color: #1a3a52;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+    color: #7C3AED;
+    text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+/* ============================================ */
+/* MUSIC PLAYER BUTTON */
+/* ============================================ */
+.music-toggle-btn {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.music-toggle-btn:hover {
+    color: #FF6B35;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+    transform: scale(1.2) rotateZ(10deg);
+}
+
+.music-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+[data-theme="light"] .music-toggle-btn {
+    color: #1a3a52;
+}
+
+[data-theme="light"] .music-toggle-btn:hover {
+    color: #FF6B35;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+/* Music playing animation */
+.music-toggle-btn.playing {
+    animation: musicPulse 0.6s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 /* Small Devices (e.g., Phones) */
 @media screen and (max-width: 700px) {
     .portfolio-navbar {
         padding: 1rem 4rem;
+    }
+
+    .theme-toggle-btn {
+        margin-left: 1rem;
+    }
+
+    .music-toggle-btn {
+        margin-left: 0.8rem;
     }
 }
 
@@ -207,5 +360,9 @@
     
     .portfolio-navbar-menu-container-links-ctabtn {
         display: block; /* Show the CTA button inside the mobile menu */
+    }
+
+    .theme-toggle-btn {
+        margin-left: 0.5rem;
     }
 }
