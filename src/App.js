@@ -9,6 +9,30 @@ import './App.css'
 const App = () => {
     return (
         <div className='App'>
+            {/* Animated dots background */}
+            <div className="background-bubbles">
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+                <div className="bubble"></div>
+            </div>
+            
             <div className='gradient-bg'>
                 <Navbar />
                 <Hero />
