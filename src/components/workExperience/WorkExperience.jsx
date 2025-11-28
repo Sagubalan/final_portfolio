@@ -18,7 +18,7 @@ function WorkExperience() {
 
                 <TimelineBlock icon={<WorkIcon fontSize='large' />} title='Generative AI' duration='Feb 2024 - Present' company='Generative AI' text="Attending a Generative AI workshop to master prompt engineering and GenAI application." />
 
-                <TimelineBlock icon={<WorkIcon fontSize='large' />} title='UI/UX Designer' duration='sep 2025 - Present' company='UI/UX' text="Building foundational knowledge in UI/UX design, focusing on practical application and best practices learned through a GDG-led workshop." />
+                <TimelineBlock icon={<WorkIcon fontSize='large' />} title='UI/UX Designer' duration='sep 2025 - Present' company='UI/UX' text="Building foundational knowledge in UI/UX design, focusing on practical application and best practices learned through a GDG-lead workshop." />
 
             
             </div>
